@@ -4,6 +4,7 @@
 package moon;
 
 import org.junit.Test;
+import com.App;
 import static org.junit.Assert.*;
 
 public class AppTest {
