@@ -1,0 +1,1 @@
+resources 저장 디렉토리
