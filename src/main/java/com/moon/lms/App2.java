@@ -7,52 +7,63 @@ public class App2 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
     
+    class Member {
+      int no;
+      String name;
+      String email;
+      String password;
+      String photo;
+      String tel;
+      Date registeredDate;
+    }
+    
+    
     final int SIZE = 100;
     int count = 0;
+    String response;
     
-    int[] no = new int[SIZE];
-    String[] name = new String[SIZE];
-    String[] email = new String[SIZE];
-    String[] password = new String[SIZE];
-    String[] photo = new String[SIZE];
-    String[] tel = new String[SIZE];
-    Date[] registeredDate = new Date[SIZE];
+    Member[] members = new Member[SIZE];
+    
     
   for (int i = 0; i < SIZE; i++) {    
-    
-    count++;
+    Member member = new Member();
+   
     
     System.out.print("번호?");
-     no[i] = keyboard.nextInt();
+    member.no = keyboard.nextInt();
     keyboard.nextLine();
     
     System.out.print("이름?");
-     name[i] = keyboard.nextLine();
+     member.name = keyboard.nextLine();
     
     System.out.print("이메일?");
-     email[i] = keyboard.nextLine();
+     member.email = keyboard.nextLine();
     
     System.out.print("암호?");
-     password[i] = keyboard.nextLine();
+     member.password = keyboard.nextLine();
     
     System.out.print("사진?");
-     photo[i] = keyboard.nextLine();
+     member.photo = keyboard.nextLine();
     
     System.out.print("전화?");
-     tel[i] = keyboard.nextLine();
+     member.tel = keyboard.nextLine();
     
-     registeredDate[i] = new Date(System.currentTimeMillis());
+     member.registeredDate = new Date(System.currentTimeMillis());
 
+     members[i] = member;
+     
+     count++;
      System.out.print("계속 입력하시겠습니까? (Y/n) ");
-     String response = keyboard.nextLine();
+     response = keyboard.nextLine();
      if (!response.equalsIgnoreCase("y"))
      break;
   }
   System.out.println();
      
 for (int i = 0; i < count; i++) {
+ Member member = members[i];
   System.out.printf("%d, %s , %s   , %s    , %s\n",
-      no[i],name[i],email[i],tel[i],registeredDate[i]);
+      member.no,member.name,member.email,member.tel,member.registeredDate);
 }
     
 
