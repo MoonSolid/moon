@@ -6,39 +6,61 @@ public class App {
    public static void main(String[] args) {
      Scanner keyboard = new Scanner(System.in);
      
+     final int SIZE = 100;
      
+     int[] no = new int[SIZE];
+     String[] title = new String[SIZE];
+     String[] description = new String[SIZE];
+     Date[] startDate = new Date[SIZE];
+     Date[] endDate = new Date[SIZE];
+     int[] totalHours = new int[SIZE];
+     int[] dayHours = new int [SIZE];
+     
+     int count = 0;
+     
+     for (int i = 0; i < SIZE; i++) {
+     
+        count++;
+        
     System.out.print("번호?");
-    int no = keyboard.nextInt();
+     no[i] = keyboard.nextInt();
     keyboard.nextLine();
     
     System.out.print("수업명?");
-    String title = keyboard.nextLine();
+     title[i] = keyboard.nextLine();
     
     System.out.print("설명?");
-    String description = keyboard.nextLine();
+     description[i] = keyboard.nextLine();
     
     System.out.print("시작일?");
-    Date startDate = Date.valueOf(keyboard.next());
+     startDate[i] = Date.valueOf(keyboard.next());
     
     System.out.print("종료일?");
-    Date endDate = Date.valueOf(keyboard.next());
+     endDate[i] = Date.valueOf(keyboard.next());
     
     
     System.out.print("총수업시간?");
-    int totalHours = keyboard.nextInt();
+     totalHours[i] = keyboard.nextInt();
     
     
     System.out.print("일수업시간?");
-    int dayHours = keyboard.nextInt();
-    
+     dayHours[i] = keyboard.nextInt();
+     keyboard.nextLine();
+     
+     System.out.print("계속 입력하시겠습니까?(Y/n) ");
+     String response = keyboard.nextLine();
+     if(!response.equalsIgnoreCase("y"))
+       break;
+         
+     }
     System.out.println();
     
-    System.out.printf("번호: %d\n", no);
-    System.out.printf("수업명: %s\n", title);
-    System.out.printf("설명: %s\n", description);
-    System.out.printf("기간: %s ~ %s\n", startDate, endDate);
-    System.out.printf("총수업시간: %d\n", totalHours);
-    System.out.printf("일수업시간: %d\n", dayHours);
+    for (int i = 0; i < count; i++) {
+      System.out.printf("%d, %s  ,  %s ~ %s ,  %d\n",
+          no[i],title[i],startDate[i],endDate[i],totalHours[i]);
+    }
+    
+   
     keyboard.close();
   }
 }
